@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emman.dev - Gallery</title>
+    <link rel="stylesheet" href="mtwebsite.css">
+</head>
+<body>
+    <header>
+        <h2>Emman.dev</h2>
+        <nav>
+            <a id="inactive" href="index.html">HOME</a>
+            <a id="inactive" href="mtwebsite2.html">ABOUT ME</a>
+            <a id="inactive" href="mtwebsite3.html">PORTFOLIO</a>
+            <a id="current" href="mtwebsite4.html">GALLERY</a>
+            <a id="inactive" href="mtwebsite5.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <main class="gallery-container">
+        <div class="gallery-header">
+            <h1 class="gallery-title">GALLERY</h1>
+            <p class="gallery-desc">A visual collection of moments, projects, and video highlights.</p>
+        </div>
+
+        <div class="photo-grid">
+            <div class="photo-card card-red"><img src="picgrad.jpg" alt="Gallery Photo 1" loading="lazy"></div>
+            <div class="photo-card card-white"><img src="fc3fefed-8f3f-4887-a269-4e8d39fa4fca.jpg" alt="Gallery Photo 2" loading="lazy"></div>
+            <div class="photo-card card-red"><img src="grade6.jpg" alt="Gallery Photo 3" loading="lazy"></div>
+
+            <div class="photo-card card-white"><img src="34e5b8d7-7927-49e2-ba77-7a2b40ca5571.jpg" alt="Gallery Photo 4" loading="lazy"></div>
+            <div class="photo-card card-red"><img src="e7d16a01-5a98-40bb-8fe8-2b0567c66f62.jpg" alt="Gallery Photo 5" loading="lazy"></div>
+            <div class="photo-card card-white"><img src="58e9858e-4536-45dc-9fd1-149c403f8515 (1).jpg" alt="Gallery Photo 6" loading="lazy"></div>
+
+            <div class="photo-card card-red"><img src="pfp.jpg" alt="Gallery Photo 7" loading="lazy"></div>
+            <div class="photo-card card-white"><img src="d530928c-b0c4-4b78-9b4b-48a3a0af0755.jpg" alt="Gallery Photo 8" loading="lazy"></div>
+            <div class="photo-card card-red"><img src="1585314a-26e5-4bff-82e3-e3f77af738b6.jpg" alt="Gallery Photo 9" loading="lazy"></div>
+
+            <div class="photo-card card-white"><img src="2962ba67-2a52-4245-a6a3-6c8090b1d796.jpg" alt="Gallery Photo 10" loading="lazy"></div>
+            <div class="photo-card card-red"><img src="8c737b59-cb9d-4828-8fc3-8a4c7bacfbcb.jpg" alt="Gallery Photo 11" loading="lazy"></div>
+            <div class="photo-card card-white"><img src="8101c774-5c3d-4612-8ea3-63ba22012fd7.jpg" alt="Gallery Photo 12" loading="lazy"></div>
+        </div>
+
+        <div class="gallery-section-title">
+            <h2>VIDEO</h2>
+        </div>
+
+        <div class="video-stack">
+            <div class="video-card card-red">
+                <video controls preload="none" playsinline>
+                    <source src="gradvid.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-btn lightbox-prev">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Enlarged gallery photo">
+        </div>
+        <button class="lightbox-btn lightbox-next">&#10095;</button>
+    </div>
+
+    <div class="footer">
+        <p>©2026 Emmanuel Dela Cruz // 2-IT3</p>
+        <p>Built with HTML, CSS, & JavaScript</p>
+    </div>
+
+    <script>
+        const photoCards = document.querySelectorAll('.photo-card img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const prevBtn = document.querySelector('.lightbox-prev');
+        const nextBtn = document.querySelector('.lightbox-next');
+
+        let currentIndex = 0;
+        const imagesList = Array.from(photoCards);
+
+        function showLightbox(index) {
+            currentIndex = index;
+            lightboxImg.src = imagesList[currentIndex].src;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % imagesList.length;
+            lightboxImg.src = imagesList[currentIndex].src;
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + imagesList.length) % imagesList.length;
+            lightboxImg.src = imagesList[currentIndex].src;
+        }
+
+        imagesList.forEach((img, index) => {
+            img.addEventListener('click', () => showLightbox(index));
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        nextBtn.addEventListener('click', nextImage);
+        prevBtn.addEventListener('click', prevImage);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+    </script>
+</body>
+</html>

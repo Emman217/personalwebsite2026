@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="attendance.css">
+<head>
+    <title>Class Attendance</title>
+</head>
+
+<body>
+    <div class="box1">
+        <h1>Class Attendance</h1>
+        <form onsubmit="handleSubmit(event)">
+            <p>Enter your full name to be included in<br>the attendance list.</p>
+            <input type="text" placeholder="Enter full name" id="text-input">
+            <br><br>
+            <div class="button-group">
+                <button type="submit">Add Attendance</button>
+                <button type="reset">Clear Input</button>
+            </div>
+        </form>
+    </div>
+    <div class="box2">
+        <label for="tbl">Attendance List</label>
+        <table id="tbl">
+            <tr>
+                <th>No.</th>
+                <th>Student Name</th>
+                <th>Time Recorded</th>
+            </tr>
+
+            <tr id="no-attendance">
+            <td colspan="3">No attendance recorded yet.</td>
+            </tr>
+        </table>
+        <p id="message"></p>
+    </div>   
+
+    <script>
+        let studentCount = 0;
+
+        function handleSubmit(event){
+            event.preventDefault();
+
+            const nameInput = document.getElementById("text-input");
+            const studentName = nameInput.value;
+
+            if(studentName === ""){
+                alert("Please enter a student name.");
+                return;
+            }
+
+            const noAttendanceRow = document.getElementById("no-attendance");
+            if (noAttendanceRow) {
+                noAttendanceRow.remove();
+            }
+            
+            studentCount++;
+            const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+            const tableRow = document.createElement("tr");
+
+            tableRow.innerHTML = `
+                <td>${studentCount}</td>
+                <td>${studentName}</td>
+                <td>${currentTime}</td>
+            `;
+
+            document.getElementById("tbl").appendChild(tableRow);
+
+            nameInput.value = "";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+<style>
+    body{
+        margin: 0px;
+        background-color: rgb(247, 247, 247);
+    }
+    .head{
+        background-color: darkblue;
+        padding: 10px;
+        padding-bottom: 0px;
+        align-items: center;
+        margin-bottom: 0px;
+        display: flex;
+        padding-top: 0px;
+    }
+    .headtext{
+        margin: 0px;
+        color: white;
+        font-size: 30px;
+        margin-right: 650px;
+        padding: 20px;
+    }
+    .subheadtext{
+        margin: 0px;
+        padding-top: 15px;
+        font-size: 26px;
+        margin-left: 78px;
+        margin-bottom: -10px;
+        color:darkblue;
+    }
+    .container{
+        display: flex;
+        gap: 10px;
+        width: 90%;
+        margin: 20px auto;
+        border-top: 3px solid darkblue;
+    }
+    .box{
+        border: 1px solid lightgray;
+        margin-top: 15px;
+        border-radius: 13px;
+        padding: 15px;
+        background-color: white;
+    }
+    .title{
+        color: darkblue;
+        margin-top: 0px;
+        margin-bottom: 6px;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+    }
+    .t2{
+        text-align: left;
+        margin-left: 20px;
+    }
+    .box1{
+        width: 400px;
+        height: 580px;
+    }
+    .box2{
+        width: 1000px;
+        height: 580px;
+    }
+    .navbar{
+        display: flex;
+        gap: 35px;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .form{
+        border-top: 2px solid darkblue;
+        padding: 10px;
+        padding-top: 13px;
+    }
+    .recordsTable{
+        border-top: 2px solid darkblue;
+        padding: 10px;
+        padding-top: 13px;;
+    }
+    table{
+        width: 950px;
+        text-align: left;
+        border: 1px solid lightgray;
+        border-collapse: collapse;
+    }
+    thead{
+        background-color: darkblue;
+        color: white;
+        border: 1px solid darkblue;
+    }
+    td, th{
+        height: 23px;
+    }
+    thead th{
+        padding: 5px;
+        border: 2px solid lightgray;
+    }
+    tbody td{
+        padding: 5px;
+        border: 2px solid lightgray;
+    }
+    button{
+        background-color: darkblue;
+        color: white;
+        border-color: darkblue;
+        border-radius: 4px;
+    }
+    .status{
+        font-weight: bold;
+    }
+    .even{
+        background-color: rgb(237, 237, 237);
+    }
+    .pages{
+        text-align: center;
+    }
+    .pages a{
+        display: inline-block;
+        padding: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        color: darkblue;
+    }
+    .one{
+        background-color: lightblue;
+        color: white;
+        border-radius: 20px;
+    }
+    .info{
+        border-left: 4px solid darkblue;
+        margin-top: 10px;
+        height: 100px;
+        padding-left: 10px;
+        border-radius: 8px;
+        background-color: rgb(243, 243, 243);
+    }
+    .infotitle{
+        font-size: 22px;
+        color: rgb(0, 0, 101);
+        margin: 0px;
+    }
+    .foot{
+        justify-content: end;
+        background-color: darkblue;
+        color: white;
+        margin-top: auto;
+        font-family: sans-serif;
+        text-align: center;
+        padding: 21px;
+    }
+</style>
+</head>
+<body>
+    <header class="head">
+        <img src="ccc.png" width="100px" height="100px">
+        <h1 class="headtext">CITY COLLEGE OF CALAMBA</h1>
+        <navbar class="navbar">
+            <p>REGISTER</p>
+            <p>HOME</p>
+            <p>ABOUT</p>
+        </navbar>
+    </header>
+    <div class="subhead">
+        <h1 class="subheadtext">Student Registration Form</h1>
+    </div>
+    <div class="container">
+        <div class="box box1">
+            <p class="title">Registration Form</p>
+            <div class="form">
+                <label class="studname">Student Name:</label><br>
+                <input type="text" name="name" style="width: 263px;" placeholder="Enter your full name"><br><br>
+                
+                <label class="studID">Student ID (ex: 2026-001):</label><br>
+                <input type="number" name="STUDID" style="width: 263px;" placeholder="Enter your student ID"><br><br>
+
+                <label for="dept">Department: </label><br>
+                <select class="dpt" name="dpt" id="dpt" size="1">
+                <option value="select" disabled selected>Select Department</option>
+                <option value="DCI" label="Department of Computing and Informatics">Department of Computing and Informatics</option>
+                <option value="DTE" label="Department of Teacher Education">Department of Teacher Education</option>
+                <option value="DAS" label="Department of Arts and Sciences">Department of Arts and Sciences</option>
+                <option value="DBA" label="Department of Business and Accountancy">Department of Business and Accountancy</option>
+                </select><br><br>
+
+                <label class="section">Year, Course, & Section (ex: 2-IT3, 2-CS3):</label><br>
+                <input type="text" name="sect" style="width: 263px;" placeholder="Year, course, & section"><br><br>
+
+                <label class="email">Email:</label><br>
+                <input type="text" name="email" style="width: 263px;" placeholder="example@gmail.com"><br><br>
+
+                <label class="contactnumber">Contact Number:</label><br>
+                <input type="number" name="number" style="width: 263px;" placeholder="09xx-xxx-xxxx"><br><br>
+
+                <label class="bdate">Date of Birth:</label><br>
+                <input type="date" style="width: 267px;" name="date"><br><br>
+
+                <label>Gender: </label><br>
+            <input type="radio" id="M" name="gender" value="Male">
+            <label for="M">Male</label><br>
+            <input type="radio" id="F" name="gender" value="Female">
+            <label for="F">Female</label><br>
+            <input type="radio" id="O" name="gender" value="Other">
+            <label for="O">Other</label><br><br>
+
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </div>
+        </div>
+        <div class="box box2">
+            <p class="title t2">Student Records</p>
+            <div class="recordsTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Course & Section</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd">
+                            <td>2026-001</td>
+                            <td>Emmanuel Dela Cruz</td>
+                            <td>edela_cruz@gmail.com</td>
+                            <td>DCI</td>
+                            <td>2-IT3</td>
+                        </tr>
+                        <tr class="even">
+                            <td>2026-002</td>
+                            <td>Dann Adrian P. Peralta</td>
+                            <td>dAdrian29@gmail.com</td>
+                            <td>DCI</td>
+                            <td>2-IT7</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>2026-003</td>
+                            <td>Monkey D. Luffy</td>
+                            <td>pirate_King@gmail.com</td>
+                            <td>DTE</td>
+                            <td>3-ECED2</td>
+                        </tr>
+                        <tr class="even">
+                            <td>2026-004</td>
+                            <td>James Russell S. Cruz</td>
+                            <td>JR_cruz1@gmail.com</td>
+                            <td>DCI</td>
+                            <td>2-IT3</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>2026-005</td>
+                            <td>Jermaine Vince S. Suelto</td>
+                            <td>JVSUELT0@gmail.com</td>
+                            <td>DCI</td>
+                            <td>2-CS3</td>
+                        <tr class="even">
+                            <td>2026-006</td>
+                            <td>Clark Criston G. Aala</td>
+                            <td>clakton67@gmail.com</td>
+                            <td>DCI</td>
+                            <td>2-IT3</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>2026-007</td>
+                            <td>Michael Corleone</td>
+                            <td>mikemikeyC@gmail.com</td>
+                            <td>DCI</td>
+                            <td>3-CS5</td>
+                        </tr>
+                        <tr class="even">
+                            <td>2026-008</td>
+                            <td>Bruce T. Wayne</td>
+                            <td>brucewayne34@gmail.com</td>
+                            <td>DAS</td>
+                            <td>4-PSY1</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>2026-009</td>
+                            <td>Elijah Nathaniel A. Dela Cruz</td>
+                            <td>e_nate0810@gmail.com</td>
+                            <td>DTE</td>
+                            <td>1-ECED1</td>
+                        <tr class="even">
+                            <td>2026-010</td>
+                            <td>Patricia A. Dela Cruz</td>
+                            <td>patnao217@gmail.com</td>
+                            <td>DTE</td>
+                            <td>2-ECED1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pages">
+                <a href=""><</a>
+                <a href="" class="one">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">...</a>
+                <a href="">79</a>
+                <a href="">></a>
+            </div>
+            <div class="info">
+            <h2 class="infotitle">Registration Information</h2>
+                <p>Please complete all required fields and double check if the information is correct before submitting.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="foot">Emmanuel Dela Cruz | 2-IT3</footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="ccounter.css">
+<head>
+    <title>Character Counter</title>
+</head>
+<body>
+  <div class="container">
+    <h2>Live Character Counter</h2>
+    <label for="text-input">Enter your message:</label><br>
+    <textarea
+      id="text-input"
+      maxlength="150"
+      placeholder="Type something here..."
+    ></textarea>
+    <p id="char-count">0 / 150</p>
+
+    <label for="preview-box">Live Preview</label>
+    <div class="preview-box">
+      <p id="live-preview">
+        (Preview text will appear here)
+      </p>
+    </div><br>
+
+    <div class="alphabet-count">
+      <h3>Alphabet Counter</h3><br>
+      <div class="alphabet-cards">
+      <p id="a-count" class="card">A = 0</p>
+      <p id="b-count" class="card">B = 0</p>
+      <p id="c-count" class="card">C = 0</p>
+      <p id="d-count" class="card">D = 0</p>
+      <p id="e-count" class="card">E = 0</p>
+      <p id="f-count" class="card">F = 0</p>
+      <p id="g-count" class="card">G = 0</p>
+      <p id="h-count" class="card">H = 0</p>
+      <p id="i-count" class="card">I = 0</p>
+      <p id="j-count" class="card">J = 0</p>
+      <p id="k-count" class="card">K = 0</p>
+      <p id="l-count" class="card">L = 0</p>
+      <p id="m-count" class="card">M = 0</p>
+      <p id="n-count" class="card">N = 0</p>
+      <p id="o-count" class="card">O = 0</p>
+      <p id="p-count" class="card">P = 0</p>
+      <p id="q-count" class="card">Q = 0</p>
+      <p id="r-count" class="card">R = 0</p>
+      <p id="s-count" class="card">S = 0</p>
+      <p id="t-count" class="card">T = 0</p>
+      <p id="u-count" class="card">U = 0</p>
+      <p id="v-count" class="card">V = 0</p>
+      <p id="w-count" class="card">W = 0</p>
+      <p id="x-count" class="card">X = 0</p>
+      <p id="y-count" class="card">Y = 0</p>
+      <p id="z-count" class="card">Z = 0</p>
+      </div>
+    </div>
+
+    <div class="number-count">
+  <h3>Number Counter</h3>
+  <div class="number-cards">
+      <p id="num0-count" class="card">0 = 0</p>
+      <p id="num1-count" class="card">1 = 0</p>
+      <p id="num2-count" class="card">2 = 0</p>
+      <p id="num3-count" class="card">3 = 0</p>
+      <p id="num4-count" class="card">4 = 0</p>
+      <p id="num5-count" class="card">5 = 0</p>
+      <p id="num6-count" class="card">6 = 0</p>
+      <p id="num7-count" class="card">7 = 0</p>
+      <p id="num8-count" class="card">8 = 0</p>
+      <p id="num9-count" class="card">9 = 0</p>
+  </div>
+</div>
+  </div>
+
+  <script>
+    const input = document.querySelector('#text-input');
+    const charCount = document.querySelector('#char-count');
+    const preview = document.querySelector('#live-preview');
+
+    input.addEventListener('input', (e) => {
+      const value = e.target.value;
+      charCount.textContent = `${value.length} / 150`;
+      preview.textContent = value || '(Preview text will appear here)';
+    });
+    const letters = "abcdefghijklmnopqrstuvwxyz";
+
+    input.addEventListener('input', (e) => {
+      const value = e.target.value.toLowerCase();
+      for (let letter of letters) {
+        let count = 0;
+      for (let char of value) {
+        if (char === letter) {
+        count++;
+      }
+    }
+      document.querySelector(`#${letter}-count`).textContent =
+      `${letter.toUpperCase()} = ${count}`;
+  }
+});
+const numbers = "0123456789";
+
+input.addEventListener('input', (e) => {
+  const value = e.target.value;
+  for (let number of numbers) {
+    let count = 0;
+    for (let char of value) {
+      if (char === number) {
+        count++;
+      }
+    }
+    document.querySelector(`#num${number}-count`).textContent =
+      `${number} = ${count}`;
+  }
+});
+  </script>
+</body>
+</html>

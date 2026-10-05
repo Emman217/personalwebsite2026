@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="inputvalidation.css">
+<head>
+    <title>Sign-Up</title>
+</head>
+<body>
+    <form>
+        <h2>Complete Sign-Up</h2>
+        
+        <label for="username">Username (alphanumeric, 4-12 chars)</label><br>
+        <input type="text" id="username" maxlength="12" oninput="checkUsername()"><br>
+        <span id="usernameError" class="usererror"></span><br><br>
+
+        <label for="phoneNum">Phone Number (10 digits)</label><br>
+        <input type="number" id="phoneNum" maxlength="10" oninput="checkPhone()"><br>
+        <span id="phoneError"></span><br><br>
+
+        <label for="pword">Password (min 8 chars, 1 letter & 1 number)</label><br>
+        <input type="password" id="pword" oninput="checkPassword()"><br>
+        <span id="passError" class="Error"></span><br><br>
+
+        <label for="confPword">Confirm Password</label><br>
+        <input type="password" id="confPword" oninput="checkConfirmPassword()"><br>
+        <span id="confirmError"></span><br><br>
+
+        <button type="submit">Create Account</button><br><br>
+        <p id="formSuccess"></p>
+    </form>
+
+    <script>
+        function checkUsername() {
+        let usernameInput = document.querySelector("#username");
+        let usernameError = document.querySelector("#usernameError");
+
+        if (usernameInput.value.length >= 4) {
+            usernameError.innerText = "Good username length!";
+            usernameError.style.color = "green";
+            usernameInput.style.border = "2px solid green";
+            } else {
+                usernameError.innerText = "Username too short.";
+                usernameError.style.color = "red";
+                usernameInput.style.border = "2px solid red";
+                }
+}
+        function checkPhone() {
+        let phoneInput = document.querySelector("#phoneNum");
+        let phoneError = document.querySelector("#phoneError");
+
+        if (phoneInput.value.length == 10) {
+            phoneError.innerText = "Good phone number!";
+            phoneError.style.color = "green";
+            phoneInput.style.border = "2px solid green";
+            } else {
+                phoneError.innerText = "Phone number must be 10 digits.";
+                phoneError.style.color = "red";
+                phoneInput.style.border = "2px solid red";
+                }
+}
+        function checkPassword() {
+            let passInput = document.querySelector("#pword");
+            let passError = document.querySelector("#passError");
+            let val = passInput.value;
+            
+            let hasLetter = /[a-zA-Z]/.test(val);
+            let hasNumber = /[0-9]/.test(val);
+
+            if (val === "") {
+                passError.innerText = "";
+                passInput.style.border = "";
+            } else if (val.length >= 8 && hasLetter && hasNumber) {
+                passError.innerText = "Good password!";
+                passError.style.color = "green";
+                passInput.style.border = "2px solid green";
+            } else {
+                passError.innerText = "Password must be at least 8 chars with 1 letter & 1 number.";
+                passError.style.color = "red";
+                passInput.style.border = "2px solid red";
+            }
+
+            checkConfirmPassword();
+        }
+    function checkConfirmPassword() {
+        let passInput = document.querySelector("#pword");
+        let confirmInput = document.querySelector("#confPword");
+        let confirmError = document.querySelector("#confirmError");
+
+        if (confirmInput.value == passInput.value && confirmInput.value != "") {
+            confirmError.innerText = "Passwords match!";
+            confirmError.style.color = "green";
+            confirmInput.style.border = "2px solid green";
+            } else {
+                confirmError.innerText = "Passwords do not match.";
+                confirmError.style.color = "red";
+                confirmInput.style.border = "2px solid red";
+                }
+}
+document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    checkUsername();
+    checkPhone();
+    checkPassword();
+    checkConfirmPassword();
+
+    let hasError = 
+        document.getElementById("usernameError").innerText.includes("too short") ||
+        document.getElementById("usernameError").innerText.includes("Only letters") ||
+        document.getElementById("phoneError").innerText.includes("must be") ||
+        document.getElementById("passError").innerText.includes("must be") ||
+        document.getElementById("confirmError").innerText.includes("do not match") ||
+        document.getElementById("username").value === "" ||
+        document.getElementById("phoneNum").value === "" ||
+        document.getElementById("pword").value === "" ||
+        document.getElementById("confPword").value === "";
+
+    let successMsg = document.getElementById("formSuccess");
+
+    if (!hasError) {
+        successMsg.innerText = "Successfully signed in!";
+        successMsg.style.color = "green";
+    } else {
+        // Conditions failed -> Show failure message at bottom
+        successMsg.innerText = "Please fix the errors above before submitting.";
+        successMsg.style.color = "red";
+    }
+});
+    </script>
+</body>
+</html>

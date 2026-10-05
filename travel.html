@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel.com</title>
+
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 30px;
+            background-color: lightseagreen;
+            color: white;
+        }
+
+        header h2{
+            margin: 0px;
+        }
+
+        nav a{
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+        }
+
+        /* INTRO */
+        .intro{
+            height: 500px;
+            background-image: url("philippines.jpg");
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+        }
+
+        .intro h1{
+            font-size: 50px;
+            margin: 10px;
+        }
+
+        .intro p{
+            font-size: 20px;
+        }
+
+        /* DESTINATIONS */
+        .destinations{
+            padding: 40px;
+            text-align: center;
+        }
+
+        .cards{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .card{
+            width: 400px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .card img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h2{
+            margin: 15px;
+        }
+
+        .card p{
+            padding: 0px 15px 15px;
+        }
+
+        /* VIDEO */
+        .video-section{
+            padding: 40px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .video-section video{
+            width: 700px;
+            max-width: 100%;
+        }
+
+        /* REGISTRATION */
+        .registration{
+            padding: 40px;
+        }
+
+        .registration h1{
+            text-align: center;
+        }
+
+        form{
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+
+        label{
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea{
+            height: 100px;
+        }
+
+        .checkbox{
+            margin-top: 15px;
+        }
+
+        .checkbox input{
+            width: auto;
+        }
+
+        button{
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: lightseagreen;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* FOOTER */
+        footer{
+            padding: 20px;
+            text-align: center;
+            background-color: lightseagreen;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h2>Travel.com</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#register">Register</a>
+        </nav>
+    </header>
+
+
+    <!-- INTRO -->
+    <section class="intro" id="home">
+        <div>
+            <h1>Explore the Philippines</h1>
+            <p>Discover the beauty of the Philippines</p>
+        </div>
+    </section>
+
+
+    <!-- DESTINATIONS -->
+    <section class="destinations" id="destinations">
+
+        <h1>Popular Destinations</h1>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="boracay.jpg">
+                <h2>Boracay Island</h2>
+                <p>
+                    Famous for its white sand beaches, clear waters,
+                    and beautiful sunsets.
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="elnido.jpg">
+                <h2>El Nido, Palawan</h2>
+                <p>
+                    Known for its beautiful lagoons, limestone cliffs,
+                    and island beaches.
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="baguio.jpg">
+                <h2>Baguio</h2>
+                <p>
+                    A cool mountain destination known for its scenery,
+                    parks, and pine trees.
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="chocolatehills.jpg">
+                <h2>Chocolate Hills</h2>
+                <p>
+                    A famous natural attraction in Bohol made up of
+                    hundreds of unique hills.
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="puertoprincesa.jpg">
+                <h2>Puerto Princesa</h2>
+                <p>
+                    A beautiful destination known for the Puerto Princesa
+                    Underground River.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VIDEO -->
+    <section class="video-section">
+
+        <h1>Discover the Philippines</h1>
+
+        <video controls>
+            <source src="phvid.mp4" type="video/mp4">
+        </video>
+
+    </section>
+
+
+    <!-- REGISTRATION FORM -->
+    <section class="registration" id="register">
+
+        <h1>Visitor Registration</h1>
+
+        <form>
+
+            <label>Full Name</label>
+            <input type="text" required>
+
+            <label>Email Address</label>
+            <input type="email" required>
+
+            <label>Contact Number</label>
+            <input type="tel" required>
+
+            <label>Date of Visit</label>
+            <input type="date" required>
+
+            <label>Preferred Tourist Destination</label>
+            <select required>
+                <option value="">Select Destination</option>
+                <option>Boracay Island</option>
+                <option>El Nido, Palawan</option>
+                <option>Baguio</option>
+                <option>Chocolate Hills</option>
+                <option>Puerto Princesa</option>
+            </select>
+
+            <label>Number of Visitors</label>
+            <input type="number" min="1" required>
+
+            <label>Preferred Activities</label>
+            <select>
+                <option value="">Select Activity</option>
+                <option>Swimming</option>
+                <option>Sightseeing</option>
+                <option>Hiking</option>
+                <option>Island Hopping</option>
+                <option>Photography</option>
+            </select>
+
+            <label>Address / City / Province</label>
+            <input type="text" required>
+
+            <label>Emergency Contact Name</label>
+            <input type="text" required>
+
+            <label>Emergency Contact Number</label>
+            <input type="tel" required>
+
+            <label>Special Requests / Remarks</label>
+            <textarea></textarea>
+
+            <div class="checkbox">
+                <input type="checkbox" required>
+                I agree to the terms and conditions.
+            </div>
+
+            <button type="submit">Register</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Travel.com | Explore the Philippines</p>
+    </footer>
+
+</body>
+</html>
